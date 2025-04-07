@@ -1,5 +1,3 @@
 {
-  "/page": "app/page.js",
-  "/learning-strategies/page": "app/learning-strategies/page.js",
-  "/return-2-performance/page": "app/return-2-performance/page.js"
+  "/page": "app/page.js"
 }

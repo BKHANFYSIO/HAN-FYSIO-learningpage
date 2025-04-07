@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
 import { translations } from '../translations';
 import { Suspense } from 'react';
+import Navigation from '../components/Navigation';
 
 function LearningStrategiesContent() {
   const searchParams = useSearchParams();
@@ -13,37 +14,7 @@ function LearningStrategiesContent() {
   return (
     <main className="min-h-screen">
       {/* Navigation */}
-      <nav className="fixed top-0 w-full bg-white z-50 shadow-sm">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between h-16">
-            <div className="flex">
-              <Link href="https://www.han.nl/" className="flex items-center" target="_blank" rel="noopener noreferrer">
-                <span className="text-han-red font-bold text-xl">HAN</span>
-              </Link>
-            </div>
-            <div className="flex items-center space-x-4">
-              <Link 
-                href="?lang=nl" 
-                className={`${lang === 'nl' ? 'text-han-red' : 'text-gray-600'} hover:text-han-red`}
-              >
-                NL
-              </Link>
-              <Link 
-                href="?lang=en" 
-                className={`${lang === 'en' ? 'text-han-red' : 'text-gray-600'} hover:text-han-red`}
-              >
-                EN
-              </Link>
-              <Link 
-                href="?lang=de" 
-                className={`${lang === 'de' ? 'text-han-red' : 'text-gray-600'} hover:text-han-red`}
-              >
-                DE
-              </Link>
-            </div>
-          </div>
-        </div>
-      </nav>
+      <Navigation />
 
       {/* Hero Section */}
       <section className="pt-32 pb-16 px-4 sm:px-6 lg:px-8 bg-han-gray">
