@@ -1,4 +1,4 @@
-type Translation = {
+interface Translation {
   hero: {
     title: string;
     changeTheWay: string;
@@ -36,8 +36,8 @@ type Translation = {
         title: string;
         description: string;
         learningGoals: string[];
-      }
-    }
+      };
+    };
   };
   fitInTheHood: {
     title: string;
@@ -48,8 +48,8 @@ type Translation = {
         title: string;
         description: string;
         learningGoals: string[];
-      }
-    }
+      };
+    };
   };
   learn2Move: {
     title: string;
@@ -60,8 +60,8 @@ type Translation = {
         title: string;
         description: string;
         learningGoals: string[];
-      }
-    }
+      };
+    };
   };
   choose2Move: {
     title: string;
@@ -72,8 +72,8 @@ type Translation = {
         title: string;
         description: string;
         learningGoals: string[];
-      }
-    }
+      };
+    };
   };
   stayAtWork: {
     title: string;
@@ -84,8 +84,8 @@ type Translation = {
         title: string;
         description: string;
         learningGoals: string[];
-      }
-    }
+      };
+    };
   };
   explorePain: {
     title: string;
@@ -96,8 +96,8 @@ type Translation = {
         title: string;
         description: string;
         learningGoals: string[];
-      }
-    }
+      };
+    };
   };
   patientJourney: {
     title: string;
@@ -108,10 +108,10 @@ type Translation = {
         title: string;
         description: string;
         learningGoals: string[];
-      }
-    }
+      };
+    };
   };
-};
+}
 
 type Translations = {
   [key: string]: Translation;
@@ -205,10 +205,17 @@ export const translations: Translations = {
             "Progressieve trainingsschema's kunnen opstellen",
             "Sport-specifieke trainingscomponenten kunnen integreren in revalidatie"
           ]
-        },
-        "fitInTheHood": {
-          title: "FIT IN THE HOOD",
-          description: "Fysiotherapie interventies in de gemeenschap",
+        }
+      }
+    },
+    fitInTheHood: {
+      title: "FIT IN THE HOOD",
+      subtitle: "Fysiotherapie interventies in de gemeenschap",
+      intro: "Ontdek hoe je fysiotherapie kunt inzetten in wijken en gemeenschappen. Leer interventies ontwikkelen die aansluiten bij de behoeften van diverse bevolkingsgroepen en bijdragen aan een gezondere leefomgeving.",
+      topics: {
+        "wijkgericht": {
+          title: "Wijkgericht werken",
+          description: "Leer hoe je als fysiotherapeut impact kunt maken op wijkniveau. Ontdek methoden om gezondheidsbehoeften in kaart te brengen en interventies te ontwikkelen die aansluiten bij de specifieke context van een wijk.",
           learningGoals: [
             "Gezondheidsbehoeften van een wijk in kaart kunnen brengen",
             "Samenwerkingsverbanden kunnen opzetten met lokale organisaties",
@@ -216,9 +223,26 @@ export const translations: Translations = {
             "De effectiviteit van wijkgerichte interventies kunnen evalueren"
           ]
         },
-        "learn2Move": {
-          title: "LEARN-2-MOVE",
-          description: "Bewegingsanalyse en interventie",
+        "preventie": {
+          title: "Preventie & gezondheidsbevordering",
+          description: "Preventie en gezondheidsbevordering vormen een belangrijk onderdeel van wijkgerichte fysiotherapie. Leer hoe je gemeenschappen kunt ondersteunen bij het bevorderen van een gezonde leefstijl.",
+          learningGoals: [
+            "Preventieve programma's kunnen ontwikkelen voor verschillende doelgroepen",
+            "Gezondheidsvoorlichting kunnen geven op gemeenschapsniveau",
+            "Beweegprogramma's kunnen opzetten die aansluiten bij de lokale context",
+            "Gedragsveranderingstechnieken kunnen toepassen bij groepsinterventies"
+          ]
+        }
+      }
+    },
+    learn2Move: {
+      title: "LEARN-2-MOVE",
+      subtitle: "Bewegingsanalyse en interventie",
+      intro: "Verdiep je in de analyse van menselijke beweging en leer hoe je effectieve interventies kunt ontwikkelen om de bewegingskwaliteit te verbeteren. Met gedegen kennis van bewegingsanalyse kun je gerichte behandelingen bieden aan patiënten met bewegingsproblemen.",
+      topics: {
+        "bewegingsanalyse": {
+          title: "Bewegingsanalyse",
+          description: "Leer verschillende methoden voor het analyseren van menselijke beweging, van observationele analyse tot geavanceerde meettechnieken. Ontdek hoe je bewegingspatronen kunt beoordelen en afwijkingen kunt identificeren.",
           learningGoals: [
             "Observationele bewegingsanalyse kunnen uitvoeren",
             "Meetinstrumenten voor bewegingsanalyse kunnen toepassen",
@@ -226,24 +250,14 @@ export const translations: Translations = {
             "Resultaten van bewegingsanalyse kunnen interpreteren en vertalen naar behandeldoelen"
           ]
         },
-        "choose2Move": {
-          title: "CHOOSE-2-MOVE",
-          description: "Patiëntgerichte besluitvorming",
+        "interventies": {
+          title: "Bewegingsinterventies",
+          description: "Op basis van bewegingsanalyse kun je gerichte interventies ontwikkelen. Leer verschillende behandelmethoden om de bewegingskwaliteit te verbeteren en functionaliteit te herstellen.",
           learningGoals: [
-            "De principes van shared decision making kunnen uitleggen",
-            "Technieken voor effectieve communicatie kunnen toepassen",
-            "Patiëntvoorkeuren kunnen integreren in het klinisch redeneerproces",
-            "Gezamenlijke besluitvorming kunnen faciliteren in verschillende klinische contexten"
-          ]
-        },
-        "stayAtWork": {
-          title: "STAY@WORK",
-          description: "Bedrijfsgezondheidszorg en ergonomie",
-          learningGoals: [
-            "Werkplekanalyses kunnen uitvoeren",
-            "Ergonomische risicofactoren kunnen identificeren",
-            "Beratung zu Arbeitsplatzanpassungen anbieten können",
-            "Wirksamkeit ergonomischer Interventionen bewerten können"
+            "Interventies kunnen selecteren op basis van bewegingsanalyse",
+            "Oefentherapie kunnen aanpassen aan specifieke bewegingsproblemen",
+            "Motorisch leren kunnen toepassen in de behandeling",
+            "Behandelresultaten kunnen evalueren met behulp van bewegingsanalyse"
           ]
         }
       }
@@ -447,6 +461,114 @@ export const translations: Translations = {
         }
       }
     },
+    fitInTheHood: {
+      title: "FIT IN THE HOOD",
+      subtitle: "Community-based physiotherapy interventions",
+      intro: "Discover how to implement physiotherapy in neighborhoods and communities. Learn to develop interventions that meet the needs of diverse populations and contribute to a healthier living environment.",
+      topics: {
+        "wijkgericht": {
+          title: "Community-Focused Work",
+          description: "Learn how to make an impact as a physiotherapist at the community level. Discover methods to map health needs and develop interventions that fit the specific context of a neighborhood.",
+          learningGoals: [
+            "Map health needs of a community",
+            "Establish collaborations with local organizations",
+            "Develop community-oriented preventive interventions",
+            "Evaluate the effectiveness of community-based interventions"
+          ]
+        },
+        "preventie": {
+          title: "Prevention & Health Promotion",
+          description: "Prevention and health promotion are important aspects of community-based physiotherapy. Learn how to support communities in promoting a healthy lifestyle.",
+          learningGoals: [
+            "Develop preventive programs for different target groups",
+            "Provide health education at the community level",
+            "Set up exercise programs that fit the local context",
+            "Apply behavior change techniques in group interventions"
+          ]
+        }
+      }
+    },
+    learn2Move: {
+      title: "LEARN-2-MOVE",
+      subtitle: "Movement analysis and intervention",
+      intro: "Delve into the analysis of human movement and learn how to develop effective interventions to improve movement quality. With solid knowledge of movement analysis, you can provide targeted treatments for patients with movement problems.",
+      topics: {
+        "bewegingsanalyse": {
+          title: "Movement Analysis",
+          description: "Learn various methods for analyzing human movement, from observational analysis to advanced measurement techniques. Discover how to assess movement patterns and identify deviations.",
+          learningGoals: [
+            "Perform observational movement analysis",
+            "Apply measurement tools for movement analysis",
+            "Recognize and analyze abnormal movement patterns",
+            "Interpret results of movement analysis and translate them into treatment goals"
+          ]
+        },
+        "interventies": {
+          title: "Movement Interventions",
+          description: "Based on movement analysis, you can develop targeted interventions. Learn different treatment methods to improve movement quality and restore functionality.",
+          learningGoals: [
+            "Select interventions based on movement analysis",
+            "Adapt exercise therapy to specific movement problems",
+            "Apply motor learning in treatment",
+            "Evaluate treatment results using movement analysis"
+          ]
+        }
+      }
+    },
+    choose2Move: {
+      title: "CHOOSE-2-MOVE",
+      subtitle: "Patient-centered decision making",
+      intro: "Discover how to effectively involve patients in decisions about their treatment. Learn how to apply shared decision making in physiotherapy practice to achieve better treatment outcomes and higher patient satisfaction.",
+      topics: {
+        "sharedDecision": {
+          title: "Shared Decision Making",
+          description: "Shared decision making is an approach where healthcare provider and patient make decisions about treatment together. Learn how to apply this principle in physiotherapy to give patients more control over their own recovery process.",
+          learningGoals: [
+            "Explain the principles of shared decision making",
+            "Apply techniques for effective communication",
+            "Integrate patient preferences into the clinical reasoning process",
+            "Facilitate joint decision making in different clinical contexts"
+          ]
+        },
+        "patientEmpowerment": {
+          title: "Patient Empowerment",
+          description: "Patient empowerment is about strengthening patients' self-reliance and autonomy. Learn how to support patients to become active participants in their own care process.",
+          learningGoals: [
+            "Apply strategies for patient empowerment",
+            "Promote self-management in different patient groups",
+            "Strengthen patients' health literacy",
+            "Evaluate the impact of empowerment on treatment outcomes"
+          ]
+        }
+      }
+    },
+    stayAtWork: {
+      title: "STAY@WORK",
+      subtitle: "Occupational health and ergonomics",
+      intro: "Learn how physiotherapists can contribute to healthy work environments and sustainable employability of workers. Deepen your knowledge of ergonomics, work-related disorders, and interventions focused on prevention and reintegration.",
+      topics: {
+        "ergonomie": {
+          title: "Ergonomics",
+          description: "Ergonomics focuses on optimizing the work environment to promote health, safety, and productivity. Learn how to conduct workplace analyses and implement ergonomic interventions.",
+          learningGoals: [
+            "Conduct workplace analyses",
+            "Identify ergonomic risk factors",
+            "Provide advice on workplace adjustments",
+            "Evaluate effectiveness of ergonomic interventions"
+          ]
+        },
+        "duurzameInzetbaarheid": {
+          title: "Sustainable Employability",
+          description: "Sustainable employability concerns the ability of workers to remain healthy and productive throughout their career. Learn how to develop interventions that contribute to maintaining work ability.",
+          learningGoals: [
+            "Analyze factors that influence sustainable employability",
+            "Develop preventive interventions for different occupational groups",
+            "Guide reintegration processes",
+            "Collaborate with employers and other stakeholders in occupational healthcare"
+          ]
+        }
+      }
+    },
     explorePain: {
       title: "EXPLORE PAIN",
       subtitle: "Understanding and treating pain",
@@ -588,6 +710,114 @@ export const translations: Translations = {
             "Belastung und Belastbarkeit messen und überwachen können",
             "Progressive Trainingspläne erstellen können",
             "Sportspezifische Trainingskomponenten in die Rehabilitation integrieren können"
+          ]
+        }
+      }
+    },
+    fitInTheHood: {
+      title: "FIT IN THE HOOD",
+      subtitle: "Gemeindebasierte Physiotherapie-Interventionen",
+      intro: "Entdecken Sie, wie Sie Physiotherapie in Stadtvierteln und Gemeinden einsetzen können. Lernen Sie, Interventionen zu entwickeln, die den Bedürfnissen verschiedener Bevölkerungsgruppen entsprechen und zu einer gesünderen Lebensumgebung beitragen.",
+      topics: {
+        "wijkgericht": {
+          title: "Gemeindeorientiertes Arbeiten",
+          description: "Erfahren Sie, wie Sie als Physiotherapeut auf Gemeindeebene Einfluss nehmen können. Entdecken Sie Methoden zur Erfassung von Gesundheitsbedürfnissen und zur Entwicklung von Interventionen, die dem spezifischen Kontext einer Gemeinde entsprechen.",
+          learningGoals: [
+            "Gesundheitsbedürfnisse einer Gemeinde erfassen können",
+            "Kooperationen mit lokalen Organisationen aufbauen können",
+            "Gemeindeorientierte Präventionsmaßnahmen entwickeln können",
+            "Die Wirksamkeit gemeindebasierter Interventionen evaluieren können"
+          ]
+        },
+        "preventie": {
+          title: "Prävention & Gesundheitsförderung",
+          description: "Prävention und Gesundheitsförderung sind wichtige Aspekte der gemeindebasierten Physiotherapie. Lernen Sie, wie Sie Gemeinden bei der Förderung eines gesunden Lebensstils unterstützen können.",
+          learningGoals: [
+            "Präventionsprogramme für verschiedene Zielgruppen entwickeln können",
+            "Gesundheitsaufklärung auf Gemeindeebene anbieten können",
+            "Bewegungsprogramme einrichten, die dem lokalen Kontext entsprechen",
+            "Techniken zur Verhaltensänderung bei Gruppeninterventionen anwenden können"
+          ]
+        }
+      }
+    },
+    learn2Move: {
+      title: "LEARN-2-MOVE",
+      subtitle: "Bewegungsanalyse und Intervention",
+      intro: "Vertiefen Sie sich in die Analyse menschlicher Bewegung und lernen Sie, wie Sie effektive Interventionen zur Verbesserung der Bewegungsqualität entwickeln können. Mit fundiertem Wissen über Bewegungsanalyse können Sie gezielte Behandlungen für Patienten mit Bewegungsproblemen anbieten.",
+      topics: {
+        "bewegingsanalyse": {
+          title: "Bewegungsanalyse",
+          description: "Lernen Sie verschiedene Methoden zur Analyse menschlicher Bewegung, von der Beobachtungsanalyse bis hin zu fortschrittlichen Messtechniken. Entdecken Sie, wie Sie Bewegungsmuster bewerten und Abweichungen identifizieren können.",
+          learningGoals: [
+            "Beobachtende Bewegungsanalyse durchführen können",
+            "Messinstrumente zur Bewegungsanalyse anwenden können",
+            "Abweichende Bewegungsmuster erkennen und analysieren können",
+            "Ergebnisse der Bewegungsanalyse interpretieren und in Behandlungsziele umsetzen können"
+          ]
+        },
+        "interventies": {
+          title: "Bewegungsinterventionen",
+          description: "Auf Basis der Bewegungsanalyse können Sie gezielte Interventionen entwickeln. Lernen Sie verschiedene Behandlungsmethoden zur Verbesserung der Bewegungsqualität und Wiederherstellung der Funktionalität.",
+          learningGoals: [
+            "Interventionen auf Basis der Bewegungsanalyse auswählen können",
+            "Übungstherapie an spezifische Bewegungsprobleme anpassen können",
+            "Motorisches Lernen in der Behandlung anwenden können",
+            "Behandlungsergebnisse mithilfe der Bewegungsanalyse evaluieren können"
+          ]
+        }
+      }
+    },
+    choose2Move: {
+      title: "CHOOSE-2-MOVE",
+      subtitle: "Patientenzentrierte Entscheidungsfindung",
+      intro: "Entdecken Sie, wie Sie Patienten effektiv in Entscheidungen über ihre Behandlung einbeziehen können. Lernen Sie, wie Sie gemeinsame Entscheidungsfindung in der physiotherapeutischen Praxis anwenden können, um bessere Behandlungsergebnisse und höhere Patientenzufriedenheit zu erzielen.",
+      topics: {
+        "sharedDecision": {
+          title: "Gemeinsame Entscheidungsfindung",
+          description: "Gemeinsame Entscheidungsfindung ist ein Ansatz, bei dem Gesundheitsdienstleister und Patient gemeinsam Entscheidungen über die Behandlung treffen. Lernen Sie, wie Sie dieses Prinzip in der Physiotherapie anwenden können, um Patienten mehr Kontrolle über ihren eigenen Genesungsprozess zu geben.",
+          learningGoals: [
+            "Die Prinzipien der gemeinsamen Entscheidungsfindung erklären können",
+            "Techniken für effektive Kommunikation anwenden können",
+            "Patientenpräferenzen in den klinischen Denkprozess integrieren können",
+            "Gemeinsame Entscheidungsfindung in verschiedenen klinischen Kontexten ermöglichen können"
+          ]
+        },
+        "patientEmpowerment": {
+          title: "Patienten-Empowerment",
+          description: "Patienten-Empowerment zielt darauf ab, die Selbständigkeit und Autonomie der Patienten zu stärken. Lernen Sie, wie Sie Patienten unterstützen können, aktive Teilnehmer in ihrem eigenen Pflegeprozess zu werden.",
+          learningGoals: [
+            "Strategien für Patienten-Empowerment anwenden können",
+            "Selbstmanagement bei verschiedenen Patientengruppen fördern können",
+            "Die Gesundheitskompetenz der Patienten stärken können",
+            "Die Auswirkungen von Empowerment auf Behandlungsergebnisse bewerten können"
+          ]
+        }
+      }
+    },
+    stayAtWork: {
+      title: "STAY@WORK",
+      subtitle: "Betriebliche Gesundheit und Ergonomie",
+      intro: "Erfahren Sie, wie Physiotherapeuten zu gesunden Arbeitsumgebungen und nachhaltiger Beschäftigungsfähigkeit von Arbeitnehmern beitragen können. Vertiefen Sie Ihr Wissen über Ergonomie, arbeitsbedingte Erkrankungen und Interventionen mit Schwerpunkt auf Prävention und Wiedereingliederung.",
+      topics: {
+        "ergonomie": {
+          title: "Ergonomie",
+          description: "Ergonomie konzentriert sich auf die Optimierung der Arbeitsumgebung zur Förderung von Gesundheit, Sicherheit und Produktivität. Lernen Sie, wie Sie Arbeitsplatzanalysen durchführen und ergonomische Interventionen implementieren können.",
+          learningGoals: [
+            "Arbeitsplatzanalysen durchführen können",
+            "Ergonomische Risikofaktoren identifizieren können",
+            "Beratung zu Arbeitsplatzanpassungen anbieten können",
+            "Wirksamkeit ergonomischer Interventionen bewerten können"
+          ]
+        },
+        "duurzameInzetbaarheid": {
+          title: "Nachhaltige Beschäftigungsfähigkeit",
+          description: "Nachhaltige Beschäftigungsfähigkeit betrifft die Fähigkeit von Arbeitnehmern, während ihrer gesamten Karriere gesund und produktiv zu bleiben. Lernen Sie, wie Sie Interventionen entwickeln können, die zur Erhaltung der Arbeitsfähigkeit beitragen.",
+          learningGoals: [
+            "Faktoren analysieren können, die die nachhaltige Beschäftigungsfähigkeit beeinflussen",
+            "Präventive Interventionen für verschiedene Berufsgruppen entwickeln können",
+            "Wiedereingliederungsprozesse begleiten können",
+            "Mit Arbeitgebern und anderen Interessengruppen im Bereich der betrieblichen Gesundheitsversorgung zusammenarbeiten können"
           ]
         }
       }
