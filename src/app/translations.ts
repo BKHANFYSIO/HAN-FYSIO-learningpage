@@ -154,7 +154,7 @@ export const translations: Translations = {
         'Choose-2-Move': 'Patient-centered decision making',
         'Stay@Work': 'Occupational health and ergonomics',
         'Explore Pain': 'Understanding and treating pain',
-        'Patient Journey': 'The patient journey through the healthcare process',
+        'Patient Journey': 'The patient\'s journey through the healthcare process',
       },
     },
     learningStrategies: {

@@ -3,8 +3,9 @@
 import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
 import { translations } from '../translations';
+import { Suspense } from 'react';
 
-export default function ReturnToPerformance() {
+function ReturnToPerformanceContent() {
   const searchParams = useSearchParams();
   const lang = searchParams.get('lang') || 'nl';
   const t = translations[lang as keyof typeof translations];
@@ -48,7 +49,7 @@ export default function ReturnToPerformance() {
       <section 
         className="pt-32 pb-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-green-500 to-green-600 text-white"
         style={{ 
-          backgroundImage: 'url(/images/return-2-performance.jpg)',
+          backgroundImage: 'url(/images/Return-2-Performance.jpg)',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           position: 'relative'
@@ -170,5 +171,13 @@ export default function ReturnToPerformance() {
         </div>
       </section>
     </main>
+  );
+}
+
+export default function ReturnToPerformance() {
+  return (
+    <Suspense fallback={<div className="min-h-screen flex items-center justify-center">Loading...</div>}>
+      <ReturnToPerformanceContent />
+    </Suspense>
   );
 } 

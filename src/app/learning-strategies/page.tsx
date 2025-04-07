@@ -3,9 +3,9 @@
 import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
 import { translations } from '../translations';
-import Image from 'next/image';
+import { Suspense } from 'react';
 
-export default function LearningStrategies() {
+function LearningStrategiesContent() {
   const searchParams = useSearchParams();
   const lang = searchParams.get('lang') || 'nl';
   const t = translations[lang as keyof typeof translations];
@@ -130,5 +130,13 @@ export default function LearningStrategies() {
         </div>
       </section>
     </main>
+  );
+}
+
+export default function LearningStrategies() {
+  return (
+    <Suspense fallback={<div className="min-h-screen flex items-center justify-center">Loading...</div>}>
+      <LearningStrategiesContent />
+    </Suspense>
   );
 } 

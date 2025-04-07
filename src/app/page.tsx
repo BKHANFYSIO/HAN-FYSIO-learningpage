@@ -3,39 +3,40 @@
 import Link from 'next/link'
 import { useSearchParams } from 'next/navigation'
 import { translations } from './translations'
+import { Suspense } from 'react';
 
 const learningThemes = [
   {
     title: 'Return-2-Performance',
-    image: '/images/return-2-performance.jpg',
+    image: '/images/Return-2-Performance.jpg',
   },
   {
     title: 'Fit in the Hood',
-    image: '/images/fit-in-hood.jpg',
+    image: '/images/Fit-in-hood.jpg',
   },
   {
     title: 'Learn-2-Move',
-    image: '/images/learn-2-move.jpg',
+    image: '/images/Learn-2-Move.jpg',
   },
   {
     title: 'Choose-2-Move',
-    image: '/images/choose-2-move.jpg',
+    image: '/images/Choose-2-Move.jpg',
   },
   {
     title: 'Stay@Work',
-    image: '/images/stay-at-work.jpg',
+    image: '/images/Stay-at-Work.jpg',
   },
   {
     title: 'Explore Pain',
-    image: '/images/explore-pain.jpg',
+    image: '/images/Explore-Pain.jpg',
   },
   {
     title: 'Patient Journey',
-    image: '/images/patient-journey.jpg',
+    image: '/images/Patient-Journey.jpg',
   },
 ]
 
-export default function Home() {
+function HomeContent() {
   const searchParams = useSearchParams()
   const lang = searchParams.get('lang') || 'nl'
   const t = translations[lang as keyof typeof translations]
@@ -76,22 +77,21 @@ export default function Home() {
       </nav>
 
       {/* Hero Section */}
-      <section className="pt-32 pb-16 px-4 sm:px-6 lg:px-8 bg-han-gray">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center animate-fade-in">
-            <h1 className="text-5xl md:text-6xl font-bold text-han-dark mb-6">
-              {t.hero.title}
+      <section className="pt-24 pb-12 bg-gradient-to-b from-white to-gray-100">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center">
+            <h1 className="text-4xl font-bold text-gray-900">
+              {t.hero.title}{" "}
               <br />
-              <span className="text-han-pink">{t.hero.changeTheWay}</span>
-              <br />
+              <span className="text-han-red">{t.hero.changeTheWay}</span>{" "}
               {t.hero.weLearn}
             </h1>
-            <p className="text-xl text-gray-600 mb-8">
+            <p className="mt-4 text-xl text-gray-600">
               {t.hero.welcomeText}
             </p>
-            <Link 
-              href="/learning-strategies" 
-              className="bg-han-pink text-white px-8 py-3 rounded-md text-lg font-semibold hover:bg-opacity-90 transition-all hover:scale-105 inline-block"
+            <Link
+              href="/learning-strategies"
+              className="mt-8 inline-block bg-han-red text-white px-8 py-3 rounded-md hover:bg-red-700 transition"
             >
               {t.hero.startButton}
             </Link>
@@ -99,26 +99,26 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Learning Themes Grid */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {/* Learning Themes */}
+      <section className="py-12 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {learningThemes.map((theme, index) => (
               <div
                 key={theme.title}
-                className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-all hover:scale-105 cursor-pointer"
-                style={{ animationDelay: `${index * 100}ms` }}
+                className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition"
+                style={{ backgroundImage: `${theme.image}` }}
               >
                 <Link href={theme.title === 'Return-2-Performance' ? '/return-2-performance' : '#'}>
-                  <div className="h-48 overflow-hidden">
-                    <img 
-                      src={theme.image} 
+                  <div className="relative">
+                    <img
+                      src={theme.image}
                       alt={theme.title}
-                      className="w-full h-full object-cover"
+                      className="w-full h-48 object-cover"
                     />
                   </div>
-                  <div className="p-6">
-                    <h3 className="text-xl font-semibold text-han-dark mb-2">{theme.title}</h3>
+                  <div className="p-4">
+                    <h3 className="text-xl font-bold text-gray-900 mb-2">{theme.title}</h3>
                     <p className="text-gray-600">{t.themes.descriptions[theme.title]}</p>
                   </div>
                 </Link>
@@ -128,5 +128,13 @@ export default function Home() {
         </div>
       </section>
     </main>
+  )
+}
+
+export default function Home() {
+  return (
+    <Suspense fallback={<div className="min-h-screen flex items-center justify-center">Loading...</div>}>
+      <HomeContent />
+    </Suspense>
   )
 } 
