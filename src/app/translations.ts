@@ -125,7 +125,7 @@ export const translations: Translations = {
       weLearn: "VAN LEREN VERANDEREN",
       subtitle: "Fysiotherapie Leerplatform",
       welcomeText: "Welkom bij het HAN Fysiotherapie Leerplatform",
-      startButton: "Begin met Leren",
+      startButton: "Hoe leren werkt",
     },
     themes: {
       descriptions: {

@@ -106,6 +106,17 @@ function ThemeLayoutContent({ themeName, backgroundColor, themeKey }: ThemeLayou
                 <div className="p-6">
                   <p className="text-gray-700 mb-6">{topic.description}</p>
                   
+                  {key === 'bindweefselherstel' && (
+                    <Link 
+                      href="https://han-fysio-r2-p-bindweefselherstel.vercel.app/"
+                      className="inline-block mb-6 bg-han-red text-white px-4 py-2 rounded hover:bg-opacity-90 transition-all"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Ga naar de lesmodule →
+                    </Link>
+                  )}
+                  
                   <h4 className="text-lg font-semibold text-han-dark mb-3">Leerdoelen:</h4>
                   <ul className="list-disc pl-5 space-y-2">
                     {topic.learningGoals.map((goal, goalIndex) => (
